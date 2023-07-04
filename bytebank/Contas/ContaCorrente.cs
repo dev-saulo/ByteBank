@@ -10,11 +10,23 @@ namespace bytebank.Contas
     public class ContaCorrente
     {
 
-        public int numero_agencia;
-        public string conta;
-        public double saldo = 100;
+        private int numero_agencia;
+        public int Numero_agencia
+        {
+            get { return this.numero_agencia; }
+            private set {
+                if (value > 0)
+                {
+                    this.numero_agencia = value;
+                }
+            }
+        }
 
-        public Cliente titular;
+        public string Conta { get; set; }
+
+        private double saldo = 100;
+
+        public Cliente Titular { get; set; }    
 
         public void Depositar(double valor)
         {
@@ -63,7 +75,12 @@ namespace bytebank.Contas
         {
             return this.saldo;
         }
-              
+
+        public ContaCorrente(int numero_agencia, string numero_conta)
+        {
+            this.Numero_agencia = numero_agencia;
+            this.Conta = numero_conta;
+        }
 
 
     }
